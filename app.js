@@ -116,6 +116,13 @@ app.get("/:customListName", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about");
 });
-app.listen(3001, function () {
-  console.log("Server Started on Port 3001! ");
+
+let port = process.env.PORT;
+if(port== null || port ==""){
+  port=3000;
+}
+
+
+app.listen(port, function () {
+  console.log(`Server Has Started on Port ${port}! `);
 });
